@@ -295,3 +295,53 @@ input,select,textarea,button{font:inherit;color:inherit}
   .node{opacity:1}
   [data-reveal]{opacity:1;transform:none}
 }
+
+/* =========================
+   Active motion: hero and front page
+   (all of it is switched off by the reduced-motion rule above)
+========================= */
+
+/* Hero ambient glows */
+.hero{position:relative;overflow:hidden}
+.hero > .hero-copy,.hero > .hero-map{position:relative;z-index:1}
+.ambient{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.ambient i{position:absolute;border-radius:50%;filter:blur(72px)}
+.ambient i:nth-child(1){width:520px;height:520px;left:-140px;top:-170px;background:var(--cobalt);opacity:.45;animation:drift1 22s ease-in-out infinite}
+.ambient i:nth-child(2){width:440px;height:440px;right:-120px;bottom:-180px;background:var(--cobalt-hi);opacity:.28;animation:drift2 26s ease-in-out infinite}
+.ambient i:nth-child(3){width:260px;height:260px;left:44%;top:38%;background:var(--glacier);opacity:.14;animation:drift3 18s ease-in-out infinite}
+@keyframes drift1{0%,100%{transform:translate(0,0)}50%{transform:translate(100px,70px)}}
+@keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(-90px,-60px)}}
+@keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-70px,50px) scale(1.15)}}
+
+/* Rotating role word */
+.rotator-line{font-family:var(--display);font-size:clamp(20px,2.2vw,26px);font-weight:600;color:var(--text);margin-bottom:18px}
+.rotator{display:inline-grid;vertical-align:bottom;color:var(--glacier);text-align:left}
+.rotator > span{grid-area:1/1;opacity:0;white-space:nowrap;animation:rot 9s ease-in-out infinite}
+.rotator > span:nth-child(2){animation-delay:3s}
+.rotator > span:nth-child(3){animation-delay:6s}
+@keyframes rot{0%{opacity:0;transform:translateY(14px)}4%,28%{opacity:1;transform:none}33%,100%{opacity:0;transform:translateY(-14px)}}
+
+/* Hero diagram: orbit, travelling light, pulsing nodes */
+.orbit{fill:none;stroke:rgba(156,195,255,.22);stroke-width:1;stroke-dasharray:3 9;transform-origin:260px 220px;animation:spin 48s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.flow{fill:none;stroke:var(--glacier);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:.07 .93;opacity:0;animation:flow 3.2s linear infinite,showFlow .5s ease forwards;filter:drop-shadow(0 0 4px rgba(156,195,255,.8))}
+@keyframes flow{to{stroke-dashoffset:-1}}
+@keyframes showFlow{to{opacity:1}}
+.ping{fill:none;stroke:var(--glacier);stroke-width:1.2;transform-box:fill-box;transform-origin:center;animation:halo 3s ease-out infinite}
+.node.launch .ping{display:none}
+
+/* Front page marquee */
+.marquee{overflow:hidden;background:var(--cobalt);color:#fff;padding:20px 0}
+.marquee-track{display:flex;width:max-content;animation:marquee 30s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{display:inline-flex;align-items:center;gap:44px;padding-right:44px;font-family:var(--display);font-weight:600;font-size:clamp(22px,2.6vw,34px);letter-spacing:-.01em;white-space:nowrap}
+.marquee-track span::after{content:"";width:9px;height:9px;background:var(--glacier);transform:rotate(45deg);flex:none}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* Live indicator */
+.live{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--glacier);margin-right:10px;vertical-align:middle;animation:ping2 2s infinite}
+@keyframes ping2{0%{box-shadow:0 0 0 0 rgba(156,195,255,.6)}70%,100%{box-shadow:0 0 0 10px rgba(156,195,255,0)}}
+
+/* Dashboard card bars keep moving */
+.vis-dash i{transform-origin:bottom;animation:bar 3.6s ease-in-out infinite;animation-delay:calc(var(--k,0) * .35s)}
+@keyframes bar{0%,100%{transform:scaleY(.6)}50%{transform:scaleY(1)}}
