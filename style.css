@@ -144,3 +144,8 @@
 .tech-icons a,.tech-icons span{width:34px;height:34px;display:inline-grid;place-items:center;color:#7b1732;background:#f0e5e8;border-radius:10px;font-size:0;text-decoration:none;transition:transform .2s ease,background .2s ease}
 .tech-icons a:hover{background:#7b1732;color:#fff;transform:translateY(-2px)}
 .tech-icons svg{width:18px;height:18px;display:block}
+
+.studmart-shot{display:block;padding:0;background:#1a0a10;text-decoration:none}
+.studmart-shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .6s ease}
+.studmart-shot:hover img{transform:scale(1.03)}
+.studmart-shot span{background:#7b1732;color:#fff;padding:5px 10px;border-radius:6px;top:16px;left:16px}
