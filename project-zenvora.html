@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ZENVORA case study: a Nigerian delivery marketplace built by Okafor Anointing Ifebuche, covering customer ordering, store and rider workspaces, dispatch and deployment.">
+  <meta name="theme-color" content="#06142E">
+  <title>ZENVORA | Case study | Okafor Anointing Ifebuche</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="wordmark" href="index.html">Okafor Anointing</a>
+    <a class="header-cta" href="index.html#showcase">Back to work</a>
+  </header>
+
+  <main class="case">
+    <section class="case-hero">
+      <p class="kicker">Full-stack delivery marketplace</p>
+      <h1>ZENVORA</h1>
+      <p class="case-lede">A delivery marketplace for Nigerian cities, covering food, groceries and electronics. Customers order from local stores, stores run their own dashboards, and riders deliver with dispatch managed by administrators. I designed it, built the frontend and the API, and deployed both.</p>
+      <dl class="case-meta">
+        <div><dt>Role</dt><dd>Design, front end, back end, deployment</dd></div>
+        <div><dt>Stack</dt><dd>HTML, CSS, JavaScript, Node.js 22</dd></div>
+        <div><dt>Hosting</dt><dd>Vercel (frontend), Render (API)</dd></div>
+      </dl>
+      <div class="links">
+        <a href="https://github.com/ghostichukwu002/zenvora" target="_blank" rel="noopener">Source code</a>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <h2>What it does</h2>
+      <div class="case-grid">
+        <div>
+          <h3>Ordering for customers</h3>
+          <p>Shoppers browse and search, choose a delivery area, and check out with cash on delivery. Order history shows each order's status and the rider assigned to it.</p>
+        </div>
+        <div>
+          <h3>Store dashboard</h3>
+          <p>Store staff connect with an access code, accept or reject orders, move them through preparing and ready, and manage stock, prices and offers. Sales figures come from real orders.</p>
+        </div>
+        <div>
+          <h3>Rider workspace</h3>
+          <p>Riders apply with a vehicle and the areas they cover. Once an administrator approves them, they go online, pick up orders, and deliver with a proof note and a confirmation that the cash was collected.</p>
+        </div>
+        <div>
+          <h3>Dispatch desk and trust</h3>
+          <p>Administrators see every order that needs a rider, matched to riders who cover that area, and every change is written to an audit log. Customers can send care requests, and approved stores and riders carry a verified badge.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section harbor-band">
+      <h2>How it's built</h2>
+      <div class="arch">
+        <div class="arch-node">
+          <p class="kicker">Frontend</p>
+          <h3>Static site on Vercel</h3>
+          <p>Plain JavaScript modules with hash routing and no build step. Vercel forwards API calls to the Render service, so the browser talks to one domain.</p>
+        </div>
+        <div class="arch-node">
+          <p class="kicker">Backend</p>
+          <h3>Node.js API on Render</h3>
+          <p>Built on Node's own HTTP server and SQLite module, with no npm packages on the server. Passwords are hashed with scrypt, sessions use HTTP-only cookies, writes are checked against their origin, and requests are rate limited.</p>
+        </div>
+        <div class="arch-node">
+          <p class="kicker">Quality</p>
+          <h3>Tests in every layer</h3>
+          <p>158 automated tests cover the API, auth, orders, dispatch, verification and proxy handling. Browser suites walk the full flow across customer, store, administrator and rider accounts. Money is stored as whole kobo to avoid rounding errors.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <h2>Next steps</h2>
+      <p class="case-note">Online payments need a provider and their keys, and email needs a sending service before password resets and support replies leave the app. The current data store is a SQLite file on the server, and the free hosting tier erases it on restart, so the data needs a persistent database before real customers use it. Live rider tracking is the next larger piece after that.</p>
+    </section>
+
+    <nav class="case-next" aria-label="More work">
+      <a href="index.html#showcase">Back to all work</a>
+      <a href="index.html#contact">Start a similar project</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <span class="wordmark">X-DEVS</span>
+    <p>© 2026 X-DEVS. Built with purpose.</p>
+    <a href="index.html">Home</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
