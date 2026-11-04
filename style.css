@@ -520,7 +520,7 @@ body{
 
 /* Creative design portfolio */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.header-name{display:inline-block;min-width:7ch;transition:opacity .28s ease,transform .28s ease}
+.header-name{display:inline-block;min-width:8ch;transition:opacity .28s ease,transform .28s ease}
 .header-name.is-changing{opacity:0;transform:translateY(7px)}
 .eyebrow{font-size:11px;font-weight:800;letter-spacing:.2em;color:var(--cobalt);margin-bottom:18px}
 .creative-studio{background:#F8F6F1;color:#28231D}
