@@ -63,7 +63,7 @@ if (nav) {
     },
     { rootMargin: '-45% 0px -50% 0px' }
   );
-  ['about', 'showcase', 'services', 'contact'].forEach((id) => {
+  ['about', 'showcase', 'creative', 'services', 'contact'].forEach((id) => {
     const el = document.getElementById(id);
     if (el) spy.observe(el);
   });
