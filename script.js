@@ -137,3 +137,19 @@ if (form) {
       `mailto:okaforanointing37@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }
+
+
+// Header name rotation: OKAFOR → ANOINTING → IFEBUCHE
+const nameRotator = document.querySelector('[data-name-rotator]');
+if (nameRotator && !reduceMotion) {
+  const names = ['OKAFOR', 'ANOINTING', 'IFEBUCHE'];
+  let nameIndex = 0;
+  window.setInterval(() => {
+    nameRotator.classList.add('is-changing');
+    window.setTimeout(() => {
+      nameIndex = (nameIndex + 1) % names.length;
+      nameRotator.textContent = names[nameIndex];
+      nameRotator.classList.remove('is-changing');
+    }, 280);
+  }, 2200);
+}
