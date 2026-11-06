@@ -669,3 +669,62 @@ body{
   .intro-orbit,.intro-object,.intro-reflection,.intro-lettermark,.intro-name,.intro-tagline,.intro-loader,.intro-loader span{animation-duration:.01ms!important;animation-delay:0ms!important}
   .intro-name,.intro-tagline,.intro-loader{opacity:1}
 }
+
+
+/* AO monogram shatters into metallic fragments before the portfolio is revealed */
+.intro-object{isolation:isolate}
+.intro-shatter{
+  position:absolute;z-index:5;inset:21px;pointer-events:none;
+  transform:rotateZ(-7deg);transform-style:preserve-3d;
+}
+.shard{
+  position:absolute;display:block;inset:0;
+  opacity:0;
+  background:linear-gradient(145deg,rgba(255,255,255,.92),#B8A78D 34%,#715D45 70%,#E9E0D3);
+  border:1px solid rgba(255,255,255,.75);
+  box-shadow:0 5px 14px rgba(66,49,29,.18);
+  transform-style:preserve-3d;
+  animation:shardFlash .18s ease 2.38s forwards,shardBurst .82s cubic-bezier(.2,.75,.25,1) 2.48s forwards;
+}
+.shard-1{clip-path:polygon(0 0,52% 0,35% 37%,0 28%);--sx:-88px;--sy:-112px;--sr:-32deg}
+.shard-2{clip-path:polygon(52% 0,100% 0,100% 38%,65% 46%,35% 37%);--sx:104px;--sy:-100px;--sr:27deg}
+.shard-3{clip-path:polygon(0 28%,35% 37%,48% 66%,13% 78%,0 65%);--sx:-122px;--sy:-15px;--sr:-42deg}
+.shard-4{clip-path:polygon(35% 37%,65% 46%,82% 68%,48% 66%);--sx:12px;--sy:-132px;--sr:18deg}
+.shard-5{clip-path:polygon(65% 46%,100% 38%,100% 76%,82% 68%);--sx:128px;--sy:24px;--sr:38deg}
+.shard-6{clip-path:polygon(13% 78%,48% 66%,53% 100%,0 100%);--sx:-86px;--sy:112px;--sr:24deg}
+.shard-7{clip-path:polygon(48% 66%,82% 68%,100% 76%,100% 100%,53% 100%);--sx:102px;--sy:116px;--sr:-26deg}
+.shard-8{clip-path:polygon(0 0,0 28%,35% 37%,52% 0);--sx:-18px;--sy:-148px;--sr:54deg}
+.intro-lettermark{animation:introReveal 1.25s cubic-bezier(.2,.8,.2,1) .15s both,introCoreBreak .72s cubic-bezier(.55,.05,.8,.35) 2.48s forwards}
+.intro-name,.intro-tagline,.intro-loader{animation-fill-mode:forwards}
+.intro-name{animation:introTextIn .8s ease 1.15s forwards,introTextBreak .48s ease-in 2.65s forwards}
+.intro-tagline{animation:introTextIn .8s ease 1.45s forwards,introTextBreak .42s ease-in 2.62s forwards}
+.intro-orbit--outer{animation:introOrbit 12s linear infinite,introOrbitBurst .8s ease-in 2.48s forwards}
+.intro-orbit--inner{animation:introOrbitReverse 9s linear infinite,introOrbitBurst .8s ease-in 2.48s forwards}
+.intro-loader{animation:introTextIn .4s ease 1.5s forwards,introTextBreak .35s ease-in 2.7s forwards}
+@keyframes shardFlash{to{opacity:.96}}
+@keyframes shardBurst{
+  0%{opacity:.96;transform:translate3d(0,0,24px) rotate(0) scale(1)}
+  100%{opacity:0;transform:translate3d(var(--sx),var(--sy),150px) rotate(var(--sr)) scale(.48);filter:blur(2px)}
+}
+@keyframes introCoreBreak{
+  0%{opacity:1;transform:rotateX(0) rotateY(0) rotateZ(-7deg) scale(1);filter:blur(0)}
+  45%{opacity:.82;transform:rotateX(12deg) rotateY(-12deg) rotateZ(-13deg) scale(1.08);filter:blur(1px)}
+  100%{opacity:0;transform:translate3d(0,24px,-100px) rotateX(36deg) rotateY(24deg) rotateZ(16deg) scale(.62);filter:blur(8px)}
+}
+@keyframes introTextBreak{to{opacity:0;transform:translateY(-16px);filter:blur(4px)}}
+@keyframes introOrbitBurst{to{opacity:0;transform:translate(-50%,-50%) rotateX(68deg) scale(1.7)}}
+@media(max-width:520px){
+  .intro-shatter{inset:17px}
+  .shard-1{--sx:-54px;--sy:-82px}
+  .shard-2{--sx:65px;--sy:-78px}
+  .shard-3{--sx:-72px;--sy:-10px}
+  .shard-4{--sx:8px;--sy:-88px}
+  .shard-5{--sx:76px;--sy:18px}
+  .shard-6{--sx:-55px;--sy:82px}
+  .shard-7{--sx:65px;--sy:82px}
+  .shard-8{--sx:-10px;--sy:-92px}
+}
+@media(prefers-reduced-motion:reduce){
+  .intro-shatter{display:none}
+  .intro-lettermark,.intro-name,.intro-tagline,.intro-loader,.intro-orbit{animation:none!important;opacity:1}
+}
