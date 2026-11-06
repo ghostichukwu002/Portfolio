@@ -570,7 +570,7 @@ body{
     radial-gradient(ellipse at 50% 43%,rgba(255,255,255,.82),transparent 29%),
     radial-gradient(ellipse at 50% 58%,rgba(169,149,118,.24),transparent 48%),
     linear-gradient(145deg,#E9E0D3 0%,#D8CBB8 48%,#C9B99F 100%);
-  animation:introCurtainOut .55s cubic-bezier(.76,0,.24,1) 1.45s forwards;
+  animation:introCurtainOut .35s cubic-bezier(.76,0,.24,1) 1.8s forwards;
 }
 .intro::before,.intro::after{
   content:"";position:absolute;inset:-35%;pointer-events:none;z-index:-1;
@@ -787,25 +787,25 @@ body.page-entered .hero-map{
   animation:mainVisualReveal .7s cubic-bezier(.2,.8,.2,1) .18s both;
 }
 body.page-entered .hero-map .map-path{
-  animation:draw .8s ease .35s both;
+  animation:draw .65s ease .2s both;
 }
 body.page-entered .hero-map .flow{
   animation:flow 3.4s linear .9s infinite;
 }
 body.page-entered .hero-map .node{
   animation:fade .4s ease both;
-  animation-delay:calc(var(--d,0s) + .35s);
+  animation-delay:calc(var(--d,0s) + .18s);
 }
 body.page-entered .marquee{
-  animation:mainMarqueeReveal .55s cubic-bezier(.2,.8,.2,1) .85s both;
+  animation:mainMarqueeReveal .42s cubic-bezier(.2,.8,.2,1) .4s both;
 }
 body.page-entered .ambient i:nth-child(1){animation-duration:16s}
 body.page-entered .ambient i:nth-child(2){animation-duration:19s}
 body.page-entered .ambient i:nth-child(3){animation-duration:14s}
 @media(max-width:860px){
-  body.page-entered .hero-map{animation-delay:.28s}
-  body.page-entered .hero .lead{animation-delay:.5s}
-  body.page-entered .marquee{animation-delay:.65s}
+  body.page-entered .hero-map{animation-delay:.18s}
+  body.page-entered .hero .lead{animation-delay:.46s}
+  body.page-entered .marquee{animation-delay:.4s}
 }
 @media(prefers-reduced-motion:reduce){
   body.page-entered .site-header,
