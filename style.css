@@ -570,7 +570,7 @@ body{
     radial-gradient(ellipse at 50% 43%,rgba(255,255,255,.82),transparent 29%),
     radial-gradient(ellipse at 50% 58%,rgba(169,149,118,.24),transparent 48%),
     linear-gradient(145deg,#E9E0D3 0%,#D8CBB8 48%,#C9B99F 100%);
-  animation:introCurtainOut 1s cubic-bezier(.76,0,.24,1) 3.25s forwards;
+  animation:introCurtainOut .55s cubic-bezier(.76,0,.24,1) 1.45s forwards;
 }
 .intro::before,.intro::after{
   content:"";position:absolute;inset:-35%;pointer-events:none;z-index:-1;
@@ -618,7 +618,7 @@ body{
   text-shadow:1px 2px 0 #7A654B,2px 4px 0 rgba(62,47,30,.4),0 8px 22px rgba(47,35,22,.3);
   transform:rotateX(var(--intro-tilt-x,0deg)) rotateY(var(--intro-tilt-y,0deg)) rotateZ(-7deg);
   transform-style:preserve-3d;
-  animation:introReveal 1.25s cubic-bezier(.2,.8,.2,1) .15s both;
+  animation:introReveal .7s cubic-bezier(.2,.8,.2,1) .05s both;
 }
 .intro-lettermark span:first-child{transform:translateX(5px) translateZ(12px)}
 .intro-lettermark span:last-child{transform:translateX(-4px) translateZ(24px);color:#F4EDE2}
@@ -630,22 +630,22 @@ body{
 .intro-name{
   margin-top:46px;color:#3B3126;font-family:var(--display);font-size:clamp(11px,2.2vw,14px);
   font-weight:800;letter-spacing:.28em;text-align:center;
-  opacity:0;animation:introTextIn .8s ease 1.15s forwards;
+  opacity:0;animation:introTextIn .45s ease .35s forwards;
 }
 .intro-tagline{
   display:flex;align-items:center;gap:13px;margin-top:10px;
   color:#78664F;font-size:9px;font-weight:700;letter-spacing:.32em;
-  opacity:0;animation:introTextIn .8s ease 1.45s forwards;
+  opacity:0;animation:introTextIn .4s ease .48s forwards;
 }
 .intro-tagline i{width:3px;height:3px;border-radius:50%;background:#A99576}
 .intro-loader{
   position:absolute;bottom:25px;width:100px;height:2px;border-radius:2px;
   background:rgba(120,102,79,.18);overflow:hidden;opacity:0;
-  animation:introTextIn .4s ease 1.5s forwards;
+  animation:introTextIn .25s ease .58s forwards;
 }
 .intro-loader span{
   display:block;width:38%;height:100%;background:linear-gradient(90deg,#A99576,#5F4D39);
-  animation:introLoading 1.5s cubic-bezier(.4,0,.2,1) 1.65s forwards;
+  animation:introLoading .55s cubic-bezier(.4,0,.2,1) .72s forwards;
 }
 @keyframes introReveal{from{opacity:0;filter:blur(8px)}to{opacity:1;filter:blur(0)}}
 @keyframes introFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
@@ -684,7 +684,7 @@ body{
   border:1px solid rgba(255,255,255,.75);
   box-shadow:0 5px 14px rgba(66,49,29,.18);
   transform-style:preserve-3d;
-  animation:shardFlash .18s ease 2.38s forwards,shardBurst .82s cubic-bezier(.2,.75,.25,1) 2.48s forwards;
+  animation:shardFlash .12s ease 1.25s forwards,shardBurst .5s cubic-bezier(.2,.75,.25,1) 1.32s forwards;
 }
 .shard-1{clip-path:polygon(0 0,52% 0,35% 37%,0 28%);--sx:-88px;--sy:-112px;--sr:-32deg}
 .shard-2{clip-path:polygon(52% 0,100% 0,100% 38%,65% 46%,35% 37%);--sx:104px;--sy:-100px;--sr:27deg}
@@ -752,60 +752,60 @@ body{
   to{opacity:1;clip-path:inset(0 0 0 0)}
 }
 body.page-entered .site-header{
-  animation:mainHeaderDrop .8s cubic-bezier(.2,.8,.2,1) both;
+  animation:mainHeaderDrop .48s cubic-bezier(.2,.8,.2,1) both;
 }
 body.page-entered .site-header nav a{
-  animation:mainCopyRise .65s ease both;
+  animation:mainCopyRise .38s ease both;
 }
-body.page-entered .site-header nav a:nth-child(1){animation-delay:.16s}
-body.page-entered .site-header nav a:nth-child(2){animation-delay:.23s}
-body.page-entered .site-header nav a:nth-child(3){animation-delay:.30s}
-body.page-entered .site-header nav a:nth-child(4){animation-delay:.37s}
-body.page-entered .site-header nav a:nth-child(5){animation-delay:.44s}
+body.page-entered .site-header nav a:nth-child(1){animation-delay:.04s}
+body.page-entered .site-header nav a:nth-child(2){animation-delay:.08s}
+body.page-entered .site-header nav a:nth-child(3){animation-delay:.12s}
+body.page-entered .site-header nav a:nth-child(4){animation-delay:.16s}
+body.page-entered .site-header nav a:nth-child(5){animation-delay:.20s}
 body.page-entered .wordmark{animation:mainCopyRise .7s ease .08s both}
 body.page-entered .header-cta{animation:mainCopyRise .7s ease .48s both}
 body.page-entered .hero .identity{animation:mainCopyRise .7s ease .12s both}
 body.page-entered .hero .status{animation:mainCopyRise .7s ease .25s both}
 body.page-entered .hero h1 .line span{
-  animation:mainWordRise .82s cubic-bezier(.2,.8,.2,1) both;
-  animation-delay:.42s;
+  animation:mainWordRise .52s cubic-bezier(.2,.8,.2,1) both;
+  animation-delay:.16s;
 }
-body.page-entered .hero h1 .line:nth-child(2) span{animation-delay:.56s}
-body.page-entered .hero h1 .line:nth-child(3) span{animation-delay:.70s}
+body.page-entered .hero h1 .line:nth-child(2) span{animation-delay:.25s}
+body.page-entered .hero h1 .line:nth-child(3) span{animation-delay:.34s}
 body.page-entered .hero .rotator-line{animation:mainCopyRise .7s ease .92s both}
 body.page-entered .hero .lead{animation:mainCopyRise .8s ease 1.04s both}
 body.page-entered .hero .roles li{
-  animation:mainCopyRise .65s cubic-bezier(.2,.8,.2,1) both;
+  animation:mainCopyRise .38s cubic-bezier(.2,.8,.2,1) both;
 }
-body.page-entered .hero .roles li:nth-child(1){animation-delay:1.16s}
-body.page-entered .hero .roles li:nth-child(2){animation-delay:1.25s}
-body.page-entered .hero .roles li:nth-child(3){animation-delay:1.34s}
-body.page-entered .hero .roles li:nth-child(4){animation-delay:1.43s}
+body.page-entered .hero .roles li:nth-child(1){animation-delay:.48s}
+body.page-entered .hero .roles li:nth-child(2){animation-delay:.53s}
+body.page-entered .hero .roles li:nth-child(3){animation-delay:.58s}
+body.page-entered .hero .roles li:nth-child(4){animation-delay:.63s}
 body.page-entered .hero .hero-actions .btn:first-child{animation:mainCopyRise .7s ease 1.52s both}
 body.page-entered .hero .hero-actions .btn:last-child{animation:mainCopyRise .7s ease 1.66s both}
 body.page-entered .hero-map{
-  animation:mainVisualReveal 1.15s cubic-bezier(.2,.8,.2,1) .52s both;
+  animation:mainVisualReveal .7s cubic-bezier(.2,.8,.2,1) .18s both;
 }
 body.page-entered .hero-map .map-path{
-  animation:draw 1.5s ease .95s both;
+  animation:draw .8s ease .35s both;
 }
 body.page-entered .hero-map .flow{
-  animation:flow 3.4s linear 1.8s infinite;
+  animation:flow 3.4s linear .9s infinite;
 }
 body.page-entered .hero-map .node{
-  animation:fade .6s ease both;
-  animation-delay:calc(var(--d,0s) + 1.15s);
+  animation:fade .4s ease both;
+  animation-delay:calc(var(--d,0s) + .35s);
 }
 body.page-entered .marquee{
-  animation:mainMarqueeReveal .9s cubic-bezier(.2,.8,.2,1) 1.85s both;
+  animation:mainMarqueeReveal .55s cubic-bezier(.2,.8,.2,1) .85s both;
 }
 body.page-entered .ambient i:nth-child(1){animation-duration:16s}
 body.page-entered .ambient i:nth-child(2){animation-duration:19s}
 body.page-entered .ambient i:nth-child(3){animation-duration:14s}
 @media(max-width:860px){
-  body.page-entered .hero-map{animation-delay:.85s}
-  body.page-entered .hero .lead{animation-delay:1.12s}
-  body.page-entered .marquee{animation-delay:1.65s}
+  body.page-entered .hero-map{animation-delay:.28s}
+  body.page-entered .hero .lead{animation-delay:.5s}
+  body.page-entered .marquee{animation-delay:.65s}
 }
 @media(prefers-reduced-motion:reduce){
   body.page-entered .site-header,
