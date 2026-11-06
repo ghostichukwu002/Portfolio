@@ -181,7 +181,7 @@ if (introCurtain && !reduceMotion) {
     if (event.animationName === 'introCurtainOut') enterMainPage();
   }, { once: true });
   // Fallback in case the browser skips animation events.
-  window.setTimeout(enterMainPage, 4400);
+  window.setTimeout(enterMainPage, 2300);
 } else {
   window.setTimeout(enterMainPage, reduceMotion ? 100 : 0);
 }
