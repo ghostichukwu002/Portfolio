@@ -171,3 +171,17 @@ if (introMark && introScene && !reduceMotion && window.matchMedia('(pointer:fine
     introMark.style.setProperty('--intro-tilt-x', '0deg');
   });
 }
+
+
+// Main-page entrance choreography starts as the intro curtain clears.
+const introCurtain = document.querySelector('.intro');
+const enterMainPage = () => document.body.classList.add('page-entered');
+if (introCurtain && !reduceMotion) {
+  introCurtain.addEventListener('animationend', (event) => {
+    if (event.animationName === 'introCurtainOut') enterMainPage();
+  }, { once: true });
+  // Fallback in case the browser skips animation events.
+  window.setTimeout(enterMainPage, 4400);
+} else {
+  window.setTimeout(enterMainPage, reduceMotion ? 100 : 0);
+}
