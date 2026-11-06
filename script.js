@@ -153,3 +153,21 @@ if (nameRotator && !reduceMotion) {
     }, 280);
   }, 2200);
 }
+
+
+// Gentle pointer tilt for the dimensional intro mark (desktop only).
+const introMark = document.querySelector('[data-intro-mark]');
+const introScene = document.querySelector('.intro-scene');
+if (introMark && introScene && !reduceMotion && window.matchMedia('(pointer:fine)').matches) {
+  introScene.addEventListener('pointermove', (event) => {
+    const bounds = introScene.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+    introMark.style.setProperty('--intro-tilt-y', (x * 12).toFixed(2) + 'deg');
+    introMark.style.setProperty('--intro-tilt-x', (-y * 10).toFixed(2) + 'deg');
+  });
+  introScene.addEventListener('pointerleave', () => {
+    introMark.style.setProperty('--intro-tilt-y', '0deg');
+    introMark.style.setProperty('--intro-tilt-x', '0deg');
+  });
+}
