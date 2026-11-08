@@ -827,3 +827,7 @@ body.page-entered .ambient i:nth-child(3){animation-duration:14s}
 /* Entrance animations removed: render the portfolio immediately. */
 .intro{display:none!important}
 [data-reveal],[data-reveal].is-visible{opacity:1!important;visibility:visible!important;transform:none!important;filter:none!important;transition:none!important}
+
+/* Keep the hero diagram fully drawn without an entrance sequence. */
+.map-path{stroke-dashoffset:0!important;animation:none!important}
+.node{opacity:1!important;animation:none!important}
