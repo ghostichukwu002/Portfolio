@@ -139,3 +139,12 @@ if (nameRotator && !reduceMotion) {
     }, 280);
   }, 2200);
 }
+
+
+// Active portfolio terminal: rotate through developer-session messages.
+const terminalLive = document.querySelector('[data-terminal-live]');
+if (terminalLive && !reduceMotion) {
+  const terminalMessages = ['building ideas into working products','shipping responsive interfaces','connecting frontend to backend APIs','crafting visuals with purpose','exploring game systems and interactions','turning concepts into real experiences'];
+  let terminalIndex = 0;
+  window.setInterval(() => { terminalIndex = (terminalIndex + 1) % terminalMessages.length; terminalLive.textContent = terminalMessages[terminalIndex]; }, 2600);
+}
