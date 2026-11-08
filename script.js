@@ -34,20 +34,6 @@ function onScroll() {
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
-// Reveal headings and key blocks once, as they enter the viewport
-const reveal = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        reveal.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
-);
-document.querySelectorAll('[data-reveal]').forEach((el) => reveal.observe(el));
-
 // Highlight the nav link for the section in view
 if (nav) {
   const links = new Map();
@@ -152,36 +138,4 @@ if (nameRotator && !reduceMotion) {
       nameRotator.classList.remove('is-changing');
     }, 280);
   }, 2200);
-}
-
-
-// Gentle pointer tilt for the dimensional intro mark (desktop only).
-const introMark = document.querySelector('[data-intro-mark]');
-const introScene = document.querySelector('.intro-scene');
-if (introMark && introScene && !reduceMotion && window.matchMedia('(pointer:fine)').matches) {
-  introScene.addEventListener('pointermove', (event) => {
-    const bounds = introScene.getBoundingClientRect();
-    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-    introMark.style.setProperty('--intro-tilt-y', (x * 12).toFixed(2) + 'deg');
-    introMark.style.setProperty('--intro-tilt-x', (-y * 10).toFixed(2) + 'deg');
-  });
-  introScene.addEventListener('pointerleave', () => {
-    introMark.style.setProperty('--intro-tilt-y', '0deg');
-    introMark.style.setProperty('--intro-tilt-x', '0deg');
-  });
-}
-
-
-// Main-page entrance choreography starts as the intro curtain clears.
-const introCurtain = document.querySelector('.intro');
-const enterMainPage = () => document.body.classList.add('page-entered');
-if (introCurtain && !reduceMotion) {
-  introCurtain.addEventListener('animationend', (event) => {
-    if (event.animationName === 'introCurtainOut') enterMainPage();
-  }, { once: true });
-  // Fallback in case the browser skips animation events.
-  window.setTimeout(enterMainPage, 2300);
-} else {
-  window.setTimeout(enterMainPage, reduceMotion ? 100 : 0);
 }
