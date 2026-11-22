@@ -1,0 +1,152 @@
+/* X-DEVS portfolio polish — UI/UX Pro Max + Design Motion Principles */
+:root{
+  --sand:#d8cbb8;
+  --sand-deep:#c9b99f;
+  --paper:#f8f6f1;
+  --white:#fffefa;
+  --ink:#28231d;
+  --muted:#665d52;
+  --bronze:#806b51;
+  --line:rgba(58,47,34,.15);
+  --motion-fast:180ms;
+  --motion-ui:260ms;
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --ease-standard:cubic-bezier(.2,.8,.2,1);
+}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{overflow-x:clip}
+.site-header{min-height:76px;isolation:isolate}
+.site-header nav{align-items:center}
+.site-header nav a{min-height:42px;display:inline-flex;align-items:center}
+.site-header nav a:focus-visible,
+.header-cta:focus-visible,
+.btn:focus-visible,
+.project-card:focus-visible,
+.workspace-project:focus-visible,
+.text-link:focus-visible,
+.contact-form input:focus-visible,
+.contact-form select:focus-visible,
+.contact-form textarea:focus-visible,
+.tab:focus-visible,
+.menu-toggle:focus-visible{
+  outline:2px solid var(--bronze)!important;
+  outline-offset:4px!important;
+}
+.menu-toggle{min-width:44px;min-height:44px;border-radius:3px}
+.menu-toggle i{transition:transform var(--motion-fast) var(--ease-standard)}
+.menu-toggle[aria-expanded="true"] i:first-child{transform:translateY(3.5px) rotate(45deg)}
+.menu-toggle[aria-expanded="true"] i:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+.hero{isolation:isolate}
+.hero-copy{min-width:0}
+.identity{line-height:1.6}
+.status{gap:9px}
+.pulse,.live{animation:none!important;box-shadow:none!important}
+.pulse{flex:none}
+.hero h1{max-width:11ch;text-wrap:balance}
+.hero h1 .line{overflow:visible}
+.rotator-line{line-height:1.45}
+.rotator{min-width:0}
+.lead{max-width:58ch}
+.roles{gap:8px}
+.roles li{min-height:34px;display:inline-flex;align-items:center}
+.btn{min-height:46px;justify-content:center;gap:9px;transition:background var(--motion-fast) var(--ease-standard),color var(--motion-fast) var(--ease-standard),border-color var(--motion-fast) var(--ease-standard),transform var(--motion-fast) var(--ease-out),box-shadow var(--motion-fast) var(--ease-standard)}
+.btn:active{transform:translateY(0)!important}
+.hero-workspace{max-width:560px;width:100%;justify-self:end;transform:rotate(.7deg);transition:transform 350ms var(--ease-out),box-shadow 350ms var(--ease-out)}
+.hero-workspace:hover{transform:translateY(-3px) rotate(0);box-shadow:14px 18px 0 rgba(115,96,72,.1),0 30px 74px rgba(55,43,29,.14)}
+.workspace-project{min-height:70px}
+.workspace-project--static{opacity:.82}
+.workspace-project-copy small{line-height:1.5}
+.active-terminal{max-width:560px;width:100%;overflow:hidden}
+.terminal-body{min-width:0}
+.terminal-output{overflow-wrap:anywhere}
+.marquee{overflow:hidden}
+.marquee-track{animation:none!important;transform:none!important;justify-content:center;flex-wrap:wrap;width:100%;gap:10px 22px;padding:2px 20px}
+.marquee-track span{font-size:10px!important;letter-spacing:.1em;padding:5px 0!important;gap:12px!important}
+.marquee-track span[aria-hidden="true"]{display:none}
+.marquee-track span:after{width:4px;height:4px}
+.section{scroll-margin-top:90px}
+.section-title{max-width:18ch;text-wrap:balance}
+.prose p{max-width:65ch;line-height:1.8}
+.stat-card{min-width:0;transition:transform var(--motion-ui) var(--ease-out),box-shadow var(--motion-ui) var(--ease-standard)}
+.stat-card:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(55,43,29,.08)}
+.tabs{gap:5px}
+.tab{min-height:44px;min-width:90px;transition:background var(--motion-fast) var(--ease-standard),color var(--motion-fast) var(--ease-standard),transform var(--motion-fast) var(--ease-standard)}
+.tab:active{transform:scale(.98)}
+.panel{animation:none!important}
+.project-grid{align-items:stretch;gap:20px}
+.project-card{min-width:0;border-radius:4px!important;overflow:hidden;transition:transform 240ms var(--ease-out),box-shadow 240ms var(--ease-standard),border-color 240ms var(--ease-standard)!important}
+.project-card:hover{transform:translateY(-4px)!important}
+.project-card:active{transform:translateY(-1px)!important}
+.project-card .vis,.project-card .thumb{position:relative;overflow:hidden}
+.project-card .thumb img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 420ms var(--ease-out)}
+.project-card:hover .thumb img{transform:scale(1.025)}
+.project-card .card-body{display:flex;flex-direction:column;align-items:flex-start;flex:1}
+.project-card .card-body>p:not(.kicker){max-width:54ch;line-height:1.75}
+.project-card .kicker{display:flex;align-items:center;gap:7px;min-height:18px}
+.project-card h3{line-height:1.08}
+.card-link{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:18px}
+.card-link:after{content:"↗";transition:transform var(--motion-fast) var(--ease-out)}
+.project-card:hover .card-link:after{transform:translate(2px,-2px)}
+.project-card--mailora{grid-column:span 7}
+.project-card--studmart{grid-column:span 5}
+.project-card--mailora .vis-mailora{min-height:280px}
+.project-card--mailora .card-body{min-height:220px}
+.project-card--studmart .thumb{min-height:280px}
+.creative-piece{transition:background var(--motion-ui) var(--ease-standard)}
+.creative-piece:hover{background:rgba(255,254,250,.24)!important}
+.artwork{overflow:hidden;position:relative}
+.artwork:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(135deg,rgba(255,255,255,.16),transparent 52%);opacity:.6}
+.creative-caption p{max-width:38ch;line-height:1.7}
+.service{transition:transform var(--motion-ui) var(--ease-out)}
+.service:hover{transform:translateX(3px)}
+.steps li{min-width:0}
+.contact-card{align-items:start}
+.contact-form label{display:grid;gap:8px;line-height:1.4}
+.contact-form input,.contact-form select,.contact-form textarea{width:100%;min-height:46px;font-size:16px}
+.contact-form textarea{min-height:132px;resize:vertical}
+.contact-form button{min-height:48px;align-self:flex-start}
+.site-footer{gap:18px}
+.site-footer a,.site-footer .tech a{min-width:40px;min-height:40px;display:inline-flex;align-items:center;justify-content:center}
+.case-shot,.mailora-product-frame{border-radius:4px}
+.case-grid>div{min-width:0}
+.case-grid p,.case-note{line-height:1.8}
+.case-next a{min-height:44px;display:inline-flex;align-items:center}
+@media(max-width:980px){
+  .hero-workspace{justify-self:center}
+  .project-card--mailora,.project-card--studmart{grid-column:span 6}
+  .project-card--mailora .vis-mailora,.project-card--studmart .thumb{min-height:230px}
+}
+@media(max-width:860px){
+  .site-header nav.open{gap:8px!important}
+  .site-header nav.open a{min-height:46px}
+  .hero{gap:34px}
+  .hero-workspace{max-width:680px}
+  .section{scroll-margin-top:76px}
+  .contact-form button{width:100%}
+}
+@media(max-width:560px){
+  html{scroll-padding-top:76px}
+  .hero h1{max-width:10ch;text-wrap:pretty}
+  .rotator-line{max-width:34ch}
+  .hero-actions{display:grid;grid-template-columns:1fr}
+  .hero-actions .btn{width:100%}
+  .hero-workspace{transform:none!important}
+  .workspace-top,.workspace-head,.workspace-foot{letter-spacing:.05em}
+  .workspace-foot{flex-wrap:wrap}
+  .project-card--mailora,.project-card--studmart,.project-card{grid-column:1/-1!important}
+  .project-card--mailora .vis-mailora,.project-card--studmart .thumb{min-height:210px}
+  .project-card .card-body{min-height:0!important}
+  .tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;gap:4px;padding:4px!important}
+  .tab{min-width:0;padding-inline:8px!important;font-size:9px!important}
+  .contact-form button{width:100%}
+}
+@media(hover:none){
+  .hero-workspace:hover{transform:none;box-shadow:18px 22px 0 rgba(115,96,72,.13),0 28px 70px rgba(55,43,29,.12)}
+  .project-card:hover{transform:none!important}
+  .project-card:hover .thumb img{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .hero-workspace,.project-card,.stat-card,.service{transform:none!important}
+}
