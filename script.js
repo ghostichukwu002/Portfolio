@@ -9,18 +9,23 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 
 // Mobile menu
 if (toggle && nav) {
+  const closeMenu = () => {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+  };
   toggle.addEventListener('click', () => {
     const open = nav.classList.toggle('open');
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   });
-  nav.querySelectorAll('a').forEach((a) =>
-    a.addEventListener('click', () => {
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Open menu');
-    })
-  );
+  nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 860) closeMenu();
+  }, { passive: true });
 }
 
 // Header border and scroll progress
@@ -137,7 +142,7 @@ if (nameRotator && !reduceMotion) {
       nameRotator.textContent = names[nameIndex];
       nameRotator.classList.remove('is-changing');
     }, 280);
-  }, 2200);
+  }, 3600);
 }
 
 
@@ -146,5 +151,5 @@ const terminalLive = document.querySelector('[data-terminal-live]');
 if (terminalLive && !reduceMotion) {
   const terminalMessages = ['building ideas into working products','shipping responsive interfaces','connecting frontend to backend APIs','crafting visuals with purpose','exploring game systems and interactions','turning concepts into real experiences'];
   let terminalIndex = 0;
-  window.setInterval(() => { terminalIndex = (terminalIndex + 1) % terminalMessages.length; terminalLive.textContent = terminalMessages[terminalIndex]; }, 2600);
+  window.setInterval(() => { terminalIndex = (terminalIndex + 1) % terminalMessages.length; terminalLive.textContent = terminalMessages[terminalIndex]; }, 4800);
 }
