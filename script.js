@@ -153,3 +153,37 @@ if (terminalLive && !reduceMotion) {
   let terminalIndex = 0;
   window.setInterval(() => { terminalIndex = (terminalIndex + 1) % terminalMessages.length; terminalLive.textContent = terminalMessages[terminalIndex]; }, 4800);
 }
+
+
+// Live Nigeria clock in the portfolio header (West Africa Time, UTC+1).
+(() => {
+  const timeNode = document.getElementById('header-clock-time');
+  const dateNode = document.getElementById('header-clock-date');
+  if (!timeNode || !dateNode) return;
+
+  const timeFormatter = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Africa/Lagos',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hourCycle: 'h23'
+  });
+  const dateFormatter = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Africa/Lagos',
+    weekday: 'short',
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric'
+  });
+
+  const updatePortfolioClock = () => {
+    const now = new Date();
+    timeNode.textContent = timeFormatter.format(now);
+    dateNode.textContent = dateFormatter.format(now);
+    timeNode.dateTime = now.toISOString();
+    dateNode.dateTime = now.toISOString();
+  };
+
+  updatePortfolioClock();
+  window.setInterval(updatePortfolioClock, 1000);
+})();
