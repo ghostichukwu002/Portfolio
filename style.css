@@ -1035,3 +1035,49 @@ a:focus-visible,button:focus-visible{outline:2px solid #8b7964!important;outline
 .mailora-window b{height:23px;border-radius:6px;background:#0D1F23;opacity:.09}
 .mailora-window b:nth-of-type(2){opacity:.15}
 
+
+
+/* Header live clock — compact sandstorm instrument panel */
+.header-clock{
+  min-width:154px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1px;
+  padding:8px 12px 7px;
+  margin-left:auto;
+  margin-right:14px;
+  border:1px solid rgba(95,82,66,.2);
+  border-radius:9px;
+  background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(232,225,214,.72));
+  box-shadow:inset 0 1px rgba(255,255,255,.9),0 5px 16px rgba(54,47,38,.045);
+  font-family:'IBM Plex Mono',monospace;
+  line-height:1.2;
+  font-variant-numeric:tabular-nums;
+}
+.header-clock__meta{
+  display:flex;align-items:center;gap:6px;
+  color:#928574;font-size:8px;font-weight:600;letter-spacing:.12em;
+}
+.header-clock__meta i{
+  width:6px;height:6px;border-radius:50%;background:#8b7964;
+  box-shadow:0 0 0 3px rgba(139,121,100,.12);
+}
+.header-clock__time{
+  display:block;color:#292722;font-size:20px;font-weight:600;
+  letter-spacing:-.055em;line-height:1.25;
+}
+.header-clock__date{
+  display:block;color:#817667;font-size:9px;letter-spacing:.015em;
+}
+@media(max-width:860px){
+  .header-clock{order:2;margin:0 8px 0 auto;min-width:130px;padding:7px 9px}
+  .menu-toggle{order:3;flex-shrink:0}
+  .header-clock__time{font-size:17px}
+  .header-clock__meta{font-size:7px}
+  .header-clock__date{font-size:8px}
+}
+@media(max-width:380px){
+  .header-clock{min-width:116px;margin-right:5px;padding:6px 7px}
+  .header-clock__time{font-size:15px}
+  .header-clock__date{font-size:7px}
+}
