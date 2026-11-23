@@ -311,3 +311,59 @@ h1,h2,h3,.wordmark,.section-title,.project-card h3{font-family:var(--x-display)!
 @media(prefers-reduced-motion:reduce){
   .hero-workspace,.creative-piece,.service,.project-card{transform:none!important}
 }
+
+
+/* Minimal identity header: name + live Lagos clock only */
+.site-header.site-header--identity{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:24px!important;
+  min-height:82px!important;
+  height:auto!important;
+  padding:14px clamp(22px,6vw,88px)!important;
+}
+.site-header--identity .wordmark--full{
+  display:inline-flex!important;
+  align-items:center!important;
+  min-width:0!important;
+  color:var(--x-ink)!important;
+  font-family:var(--display)!important;
+  font-size:clamp(12px,1.15vw,15px)!important;
+  line-height:1.25!important;
+  font-weight:800!important;
+  letter-spacing:.09em!important;
+  text-decoration:none!important;
+  white-space:nowrap!important;
+}
+.site-header--identity .header-clock{
+  margin:0!important;
+  min-width:154px!important;
+  flex:0 0 auto!important;
+}
+@media(max-width:560px){
+  .site-header.site-header--identity{
+    min-height:70px!important;
+    padding:10px 16px!important;
+    gap:12px!important;
+  }
+  .site-header--identity .wordmark--full{
+    max-width:48%;
+    white-space:normal!important;
+    font-size:10px!important;
+    letter-spacing:.055em!important;
+    line-height:1.35!important;
+  }
+  .site-header--identity .header-clock{
+    min-width:126px!important;
+    padding:6px 8px!important;
+  }
+  .site-header--identity .header-clock__time{font-size:16px!important}
+  .site-header--identity .header-clock__meta{font-size:6px!important;letter-spacing:.08em!important}
+  .site-header--identity .header-clock__date{font-size:8px!important}
+}
+@media(max-width:360px){
+  .site-header.site-header--identity{padding-inline:12px!important;gap:8px!important}
+  .site-header--identity .wordmark--full{font-size:9px!important}
+  .site-header--identity .header-clock{min-width:118px!important}
+}
